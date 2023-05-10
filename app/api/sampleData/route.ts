@@ -47,7 +47,7 @@ const fetchData = async () => {
     });
   });
 };
-export async function GET() {
+export async function GET(request: Request) {
   const data = await fetchData();
   return NextResponse.json(data);
 }

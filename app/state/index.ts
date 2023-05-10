@@ -1,14 +1,6 @@
 "use client";
 
 import { createSlice } from "@reduxjs/toolkit";
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { server } from "../../config";
-
-const fetchData = createAsyncThunk("data/fetch", async () => {
-  const response = await fetch(`${server}/api/sampleData`);
-  const data = await response.json();
-  return data;
-});
 
 const initialState = {
   isLoading: false,
@@ -38,18 +30,6 @@ export const appSlice = createSlice({
     setData: (state, action) => {
       state.data = action.payload;
     },
-  },
-  extraReducers(builder) {
-    builder.addCase(fetchData.pending, (state, action) => {
-      state.isLoading = true;
-    });
-    builder.addCase(fetchData.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.data = action.payload;
-    });
-    builder.addCase(fetchData.rejected, (state, action) => {
-      state.isLoading = false;
-    });
   },
 });
 

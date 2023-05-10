@@ -1,13 +1,12 @@
 "use client"; // this is a client component 👈🏽
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { setYear } from "../state";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const year = useSelector((state: any) => state.data.year);
+  const { year } = useSelector((state: any) => state.data);
 
   const handleYearChange = (event: any) => {
     dispatch(setYear(event.target.value));

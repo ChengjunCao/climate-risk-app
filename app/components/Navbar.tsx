@@ -1,13 +1,16 @@
 "use client"; // this is a client component 👈🏽
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { setYear } from "../state";
 
 const Navbar = () => {
-  const [selectedOption, setSelectedOption] = useState("Option 1");
+  const dispatch = useDispatch();
+  const year = useSelector((state: any) => state.data.year);
 
-  const handleOptionChange = (event: any) => {
-    setSelectedOption(event.target.value);
+  const handleYearChange = (event: any) => {
+    dispatch(setYear(event.target.value));
   };
 
   return (
@@ -22,13 +25,13 @@ const Navbar = () => {
           <div className="flex items-center space-x-8">
             <div className="relative">
               <select
-                value={selectedOption}
-                onChange={handleOptionChange}
+                value={year}
+                onChange={handleYearChange}
                 className="bg-gray-800 text-white py-2 px-4 rounded"
               >
-                <option value="Option 1">Option 1</option>
-                <option value="Option 2">Option 2</option>
-                <option value="Option 3">Option 3</option>
+                <option value="2030">2030</option>
+                <option value="2040">2040</option>
+                <option value="2050">2050</option>
               </select>
             </div>
             <Link href="/map">Map</Link>

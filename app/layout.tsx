@@ -17,12 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Providers>
-        <body className={poppins.className}>
+      <body className={poppins.className}>
+        <Providers>
           <Navbar />
           <main className="container mx-auto px-4 py-8">{children}</main>
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }

@@ -1,9 +1,7 @@
 "use client";
 
-import { useSelector, useDispatch } from "react-redux";
-import { server } from "@/config";
-import { useEffect, useState } from "react";
-import { setData } from "../state";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 import {
   useLoadScript,
   GoogleMap,
@@ -14,17 +12,6 @@ import { groupLocationsByLatLong } from "@/helpers";
 import { DataList } from "@/types";
 
 const Map = ({ data }: { data: DataList[] }) => {
-  // const dispatch = useDispatch();
-
-  // const fetchData = async () => {
-  //   const response = await fetch(`${server}/api/sampleData`);
-  //   const data = await response.json();
-  //   dispatch(setData(data));
-  // };
-  // useEffect(() => {
-  //   fetchData();
-  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
   const { year } = useSelector((state: any) => state.data);
 
   const filteredData = data?.filter((d: any) => d.year === year);

@@ -5,16 +5,7 @@ import { server } from "@/config";
 import { useEffect, useMemo } from "react";
 import { setData } from "../state";
 import DataTable from "react-data-table-component";
-
-export type DataList = {
-  assetName: string;
-  businessCategory: string;
-  lat: number;
-  long: number;
-  riskFactors: Record<string, number>;
-  riskRating: number;
-  year: string;
-};
+import { DataList } from "@/types";
 
 const Table = () => {
   const dispatch = useDispatch();

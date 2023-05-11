@@ -1,16 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import { parse } from "csv-parse";
-
-export type DataList = {
-  assetName: string;
-  businessCategory: string;
-  lat: number;
-  long: number;
-  riskFactors: Record<string, number>;
-  riskRating: number;
-  year: string;
-};
+import { DataList } from "@/types";
 
 const fetchData = async () => {
   const data: DataList[] = [];

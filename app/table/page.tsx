@@ -71,12 +71,13 @@ const Table = () => {
   );
 
   return (
-    <div>
+    <div className="px-8 py-8">
       <DataTable
         columns={dataTableColumns}
         data={filteredData}
         pagination
         pointerOnHover
+        striped
         highlightOnHover
       />
     </div>

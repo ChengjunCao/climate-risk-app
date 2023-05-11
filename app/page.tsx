@@ -1,4 +1,5 @@
 import { server } from "@/config";
+import Map from "./map/page";
 
 const HomePage = async () => {
   const response = await fetch(`${server}/api/sampleData`);
@@ -6,8 +7,7 @@ const HomePage = async () => {
 
   return (
     <div>
-      <h1>HomePage</h1>
-      <h2>{data.length} pieces of sample data</h2>
+      <Map data={data} />
     </div>
   );
 };

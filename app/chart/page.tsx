@@ -1,28 +1,16 @@
-"use client";
-
-import { useSelector, useDispatch } from "react-redux";
 import { server } from "@/config";
-import { useEffect } from "react";
-import { setData } from "../state";
+import DataChart from "../components/DataChart";
+import { Providers } from "../state/provider";
 
-const Chart = () => {
-  const dispatch = useDispatch();
+const Table = async () => {
+  const response = await fetch(`${server}/api/sampleData`);
+  const data = await response.json();
 
-  const fetchData = async () => {
-    const response = await fetch(`${server}/api/sampleData`);
-    const data = await response.json();
-    dispatch(setData(data));
-  };
-  useEffect(() => {
-    fetchData();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const filteredData = useSelector(
-    ({ data: { data, year } }: { data: any; year: any }) =>
-      data?.filter((d: any) => d.year === year)
+  return (
+    <Providers>
+      <DataChart data={data} />
+    </Providers>
   );
-
-  return <div>Chart {filteredData.length}</div>;
 };
 
-export default Chart;
+export default Table;

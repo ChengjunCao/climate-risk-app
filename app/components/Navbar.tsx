@@ -28,9 +28,11 @@ const Navbar = () => {
                 onChange={handleYearChange}
                 className="bg-gray-800 text-white py-2 px-4 rounded"
               >
-                <option value="2030">2030</option>
-                <option value="2040">2040</option>
-                <option value="2050">2050</option>
+                <option value="2030">2030s</option>
+                <option value="2040">2040s</option>
+                <option value="2050">2050s</option>
+                <option value="2060">2060s</option>
+                <option value="2070">2070s</option>
               </select>
             </div>
             <Link href="/map">Map</Link>

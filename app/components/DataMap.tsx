@@ -30,7 +30,7 @@ const DataMap = ({ data }: { data: DataList[] }) => {
   const center = { lat: locations?.[0]?.lat, lng: locations?.[0]?.long };
 
   const [hoveredMarker, setHoveredMarker] = useState(false);
-  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [selectedMarker, setSelectedMarker] = useState(0);
   const handleMarkerMouseOver = (index: number) => {
     setHoveredMarker(true);
     setSelectedMarker(index);
@@ -42,7 +42,7 @@ const DataMap = ({ data }: { data: DataList[] }) => {
   if (!isLoaded) return <div></div>;
 
   return (
-    <GoogleMap zoom={4} mapContainerStyle={containerStyle} center={center}>
+    <GoogleMap zoom={3} mapContainerStyle={containerStyle} center={center}>
       {locations?.map((d: any, index: number) => {
         const latLng = { lat: d.lat, lng: d.long };
         const shouldShowInfoWindow = selectedMarker === index && hoveredMarker;
@@ -60,7 +60,7 @@ const DataMap = ({ data }: { data: DataList[] }) => {
             {shouldShowInfoWindow && (
               <InfoWindow onCloseClick={() => setHoveredMarker(false)}>
                 <div style={{ backgroundColor: "white" }}>
-                  {d.assetNames.join(", ")}
+                  Asset Names: {d.assetNames.join(", ")}
                 </div>
               </InfoWindow>
             )}

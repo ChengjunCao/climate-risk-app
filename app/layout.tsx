@@ -17,7 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body
+        className={
+          poppins.className +
+          "flex flex-col h-screen justify-center items-center bg-gray-200"
+        }
+      >
         <Providers>
           <Navbar />
           <main className="container">{children}</main>

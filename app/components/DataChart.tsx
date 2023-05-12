@@ -9,7 +9,11 @@ const DataChart = ({ data }: { data: DataList[] }) => {
 
   const filteredData = data?.filter((d: any) => d.year === year);
 
-  return <div>{filteredData.length}</div>;
+  return (
+    <div className="flex justify-center items-center bg-gray-200 mt-20">
+      <h1 className="text-2xl font-bold mb-8 text-center">Coming Soon...</h1>
+    </div>
+  );
 };
 
 export default DataChart;
